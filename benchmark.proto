@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service Benchmark {
+    rpc Enviar(Mensagem) returns (Confirmacao);
+}
+
+message Mensagem {
+    bytes carga_util = 1;
+}
+
+message Confirmacao {
+    bool recebido = 1;
+}
