@@ -11,7 +11,7 @@ class BenchmarkServicer(benchmark_pb2_grpc.BenchmarkServicer):
         return benchmark_pb2.Confirmacao(recebido=True)
 
 
-def servir(host="10.0.1.11", porta=50051):
+def servir(host="127.0.0.1", porta=50051):
     servidor = grpc.server(
         futures.ThreadPoolExecutor(max_workers=10)
     )
