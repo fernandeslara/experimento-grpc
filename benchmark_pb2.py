@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0f\x62\x65nchmark.proto\"\x1e\n\x08Mensagem\x12\x12\n\ncarga_util\x18\x01 \x01(\x0c\"\x1f\n\x0b\x43onfirmacao\x12\x10\n\x08recebido\x18\x01 \x01(\x08\x32.\n\tBenchmark\x12!\n\x06\x45nviar\x12\t.Mensagem\x1a\x0c.Confirmacaob\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0f\x62\x65nchmark.proto\"\x1e\n\x08Mensagem\x12\x12\n\ncarga_util\x18\x01 \x01(\x0c\"7\n\x0b\x43onfirmacao\x12\x15\n\rtamanho_bytes\x18\x01 \x01(\x05\x12\x11\n\ttimestamp\x18\x02 \x01(\t2.\n\tBenchmark\x12!\n\x06\x45nviar\x12\t.Mensagem\x1a\x0c.Confirmacaob\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,7 +34,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_MENSAGEM']._serialized_start=19
   _globals['_MENSAGEM']._serialized_end=49
   _globals['_CONFIRMACAO']._serialized_start=51
-  _globals['_CONFIRMACAO']._serialized_end=82
-  _globals['_BENCHMARK']._serialized_start=84
-  _globals['_BENCHMARK']._serialized_end=130
+  _globals['_CONFIRMACAO']._serialized_end=106
+  _globals['_BENCHMARK']._serialized_start=108
+  _globals['_BENCHMARK']._serialized_end=154
 # @@protoc_insertion_point(module_scope)

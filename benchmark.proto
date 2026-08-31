@@ -9,5 +9,6 @@ message Mensagem {
 }
 
 message Confirmacao {
-    bool recebido = 1;
+    int32 tamanho_bytes = 1;
+    string timestamp = 2;
 }
