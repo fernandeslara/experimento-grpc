@@ -30,9 +30,15 @@ Para cada tamanho são realizadas 20 chamadas, totalizando 80 requisições.
 - Python 3
 - gRPC
 - WSL/Linux
+- Pandas
+- Matplotlib
 
 ## Execução
 
+### Instalação das dependências
+
+Na primeira execução, instale as bibliotecas necessárias:
+pip install grpcio grpcio-tools pandas matplotlib
 
 ### Servidor
 
