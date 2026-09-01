@@ -1,12 +1,13 @@
 import grpc
 from concurrent import futures
 from datetime import datetime, timezone #precisa para timestamp
-import benchmark_pb2
-import benchmark_pb2_grpc
+import benchmark_pb2 #mensagens definidas no proto
+import benchmark_pb2_grpc #classes e funcoes do servico grpc
 
-
+#serviço benchmark definico pelo benchmark.proto
 class BenchmarkServicer(benchmark_pb2_grpc.BenchmarkServicer):
 
+#metodo remoto enviar
     def Enviar(self, request, context):
         #tamanho do payload recebido em bytes.
         tamanho = len(request.carga_util)
@@ -27,20 +28,22 @@ class BenchmarkServicer(benchmark_pb2_grpc.BenchmarkServicer):
             tamanho_bytes=tamanho,
             timestamp=timestamp
         )
-        #return benchmark_pb2.Confirmacao(recebido=True)
 
-
+#cria e inicia o servidor grpc
 def servir(host="127.0.0.1", porta=50051):
     servidor = grpc.server(
         futures.ThreadPoolExecutor(max_workers=10)
     )
 
+    #registra o servico no servidor grpc
     benchmark_pb2_grpc.add_BenchmarkServicer_to_server(
         BenchmarkServicer(),
         servidor
     )
 
+    #montagem de endereço no formato
     endereco = f"{host}:{porta}"
+    #porta definida pro servidor aceitar conexoes
     servidor.add_insecure_port(endereco)
 
     servidor.start()
@@ -48,6 +51,7 @@ def servir(host="127.0.0.1", porta=50051):
     print(f"Servidor gRPC iniciado em {endereco}")
     print("Aguardando mensagens...")
 
+    #mantem o servidor aberto e aguardando requisicoes
     servidor.wait_for_termination()
 
 
